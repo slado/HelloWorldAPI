@@ -11,4 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: | 
+        docker login docker.pkg.github.com --username slado
+        docker build . --file Dockerfile --tag HelloWorldAPI:$(date +%s)
+        push docker.pkg.github.com/$GITHUB_REPOSITORY/HelloWorldAPI:$(date +%s)
