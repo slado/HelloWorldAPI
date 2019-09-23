@@ -9,6 +9,11 @@ docker build . --tag helloworldapi:latest
 ```
 docker run --rm -p 8080:80 --name HelloWorldAPI helloworldapi
 ```
+Run detached
+```
+docker run --rm -p 8080:80 --name HelloWorldAPI -d helloworldapi
+```
+
 
 ## Stop image
 ```
