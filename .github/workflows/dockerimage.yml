@@ -14,4 +14,4 @@ jobs:
       run: | 
         docker login --username slado --password ${{ secrets.DOCKER_PASSWORD }}
         docker build . --file Dockerfile --tag helloworldapi:$(date +%s)
-        push slado/helloworldapi:$(date +%s)
+        docker push slado/helloworldapi:$(date +%s)
