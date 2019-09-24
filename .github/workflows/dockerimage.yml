@@ -18,7 +18,6 @@ jobs:
         docker login --username slado --password ${{ secrets.DOCKER_PASSWORD }}
         docker build . --file Dockerfile --tag slado/helloworldapi:${GITHUB_SHA}
         docker push slado/helloworldapi:${GITHUB_SHA}
-        docker push slado/helloworldapi:latest
       env:
         IMAGE_TAG: $(date +%s)
         
