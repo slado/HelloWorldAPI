@@ -17,6 +17,16 @@ namespace HelloWorldAPItest
             Assert.True(arr != null && arr.Length == 2 && arr[0] == "Hello" && arr[1] == "world");
         }
 
+        [Fact]
+        public void TestGetValuesTestWithFilter()
+        {
+            ValuesController vc = new ValuesController();
+            IEnumerable<string> t = vc.Get("he").Value;
+            var arr = t.Select(a => a).ToArray();
+            Assert.True(arr != null && arr.Length == 1 && arr[0] == "Hello");
+        }
+
+
         [Theory]
         [InlineData(1)]
         [InlineData(22)]
