@@ -13,5 +13,7 @@ jobs:
     - name: Build the Docker image
       run: | 
         docker login --username slado --password ${{ secrets.DOCKER_PASSWORD }}
-        docker build . --file Dockerfile --tag helloworldapi:$(date +%s)
+        docker build . --file Dockerfile --tag slado/helloworldapi:$(date +%s)
         docker push slado/helloworldapi:$(date +%s)
+        docker push slado/helloworldapi:latest
+        
