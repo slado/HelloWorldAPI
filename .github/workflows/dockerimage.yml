@@ -12,6 +12,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build the Docker image
       run: | 
-        docker login docker.pkg.github.com --username ${{ github.actor }} --password ${{ secrets.DOCKER_TOKEN }}
+        docker login --username slado --password ${{ secrets.DOCKER_PASSWORD }}
         docker build . --file Dockerfile --tag helloworldapi:$(date +%s)
-        push docker.pkg.github.com/$GITHUB_REPOSITORY/helloworldapi:$(date +%s)
+        push slado/helloworldapi:$(date +%s)
