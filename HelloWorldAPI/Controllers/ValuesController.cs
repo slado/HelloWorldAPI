@@ -12,9 +12,14 @@ namespace HelloWorldAPI.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<string>> Get([FromQuery]string filter)
         {
-            return new string[] { "Hello", "world" };
+            var res = new string[] { "Hello", "world" };
+            if(!String.IsNullOrWhiteSpace(filter))
+            {
+                res = res.Where(a => a.Contains(filter, StringComparison.CurrentCultureIgnoreCase)).ToArray();
+            }
+            return res;
         }
 
         // GET api/values/5
