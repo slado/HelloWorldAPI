@@ -1,0 +1,22 @@
+name: Docker feature Image CI on branch
+
+on:
+  push:
+    branches:
+    - dev*
+    
+jobs:
+
+  build:
+ 
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker feature image on branch
+      run: | 
+        docker login --username slado --password ${{ secrets.DOCKER_PASSWORD }}
+        docker build . --file Dockerfile --tag slado/helloworldapi:${GITHUB_REF}
+        docker push slado/helloworldapi:${GITHUB_REF}
+        
+        
