@@ -16,7 +16,7 @@ jobs:
     - name: Build the Docker feature image on branch
       run: | 
         docker login --username slado --password ${{ secrets.DOCKER_PASSWORD }}
-        docker build . --file Dockerfile --tag slado/helloworldapi:${GITHUB_REF}
-        docker push slado/helloworldapi:${GITHUB_REF}
+        docker build . --file Dockerfile --tag slado/helloworldapi:${GITHUB_REF##*/}
+        docker push slado/helloworldapi:${GITHUB_REF##*/}
         
         
