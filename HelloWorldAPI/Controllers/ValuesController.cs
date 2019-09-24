@@ -15,6 +15,8 @@ namespace HelloWorldAPI.Controllers
         public ActionResult<IEnumerable<string>> Get([FromQuery]string filter)
         {
             var res = new string[] { "Hello", "world" };
+
+            // If filter is specified, use it
             if(!String.IsNullOrWhiteSpace(filter))
             {
                 res = res.Where(a => a.Contains(filter, StringComparison.CurrentCultureIgnoreCase)).ToArray();
