@@ -21,7 +21,7 @@ namespace HelloWorldAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return $"Hello {id}";
+            return $"Hello {id}!";
         }
 
         // POST api/values
