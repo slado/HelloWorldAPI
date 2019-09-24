@@ -15,6 +15,10 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build the Docker feature image on branch
       run: | 
+        echo ${GITHUB_REF}
+        echo ${GITHUB_REF#*/}
+        echo ${GITHUB_REF##*/}
+        echo ${GITHUB_REF###*/}
         docker login --username slado --password ${{ secrets.DOCKER_PASSWORD }}
         docker build . --file Dockerfile --tag slado/helloworldapi:${GITHUB_REF##*/}
         docker push slado/helloworldapi:${GITHUB_REF##*/}
