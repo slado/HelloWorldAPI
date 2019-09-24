@@ -12,12 +12,12 @@ namespace HelloWorldAPI.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get([FromQuery]string filter)
+        public ActionResult<IEnumerable<string>> Get([FromQuery]string filter = "")
         {
             var res = new string[] { "Hello", "world" };
 
             // If filter is specified, use it. Filter is case insensitive for current culture
-            if(!String.IsNullOrWhiteSpace(filter))
+            if (!String.IsNullOrWhiteSpace(filter))
             {
                 res = res.Where(a => a.Contains(filter, StringComparison.CurrentCultureIgnoreCase)).ToArray();
             }
