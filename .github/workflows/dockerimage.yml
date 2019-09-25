@@ -8,10 +8,8 @@ on:
 
 jobs:
 
-  runs-on: windows-latest
-
   build:
- 
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
