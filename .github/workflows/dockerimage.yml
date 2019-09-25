@@ -5,9 +5,10 @@ on:
     branches:
     - master
 
-runs-on: windows-latest
 
 jobs:
+
+  runs-on: windows-latest
 
   build:
  
