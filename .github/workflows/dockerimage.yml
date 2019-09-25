@@ -4,7 +4,9 @@ on:
   push:
     branches:
     - master
-    
+
+runs-on: windows-latest
+
 jobs:
 
   build:
@@ -16,5 +18,4 @@ jobs:
         docker login --username slado --password ${{ secrets.DOCKER_PASSWORD }}
         docker build . --file Dockerfile --tag slado/helloworldapi:${GITHUB_SHA}
         docker push slado/helloworldapi:${GITHUB_SHA}
-        docker push slado/helloworldapi
         
